@@ -9,6 +9,8 @@ djangorestframework = "*"
 drf-yasg = "*"
 
 [dev-packages]
+django-extensions = "*"
+django-sqlprint-middleware = "*"
 
 [requires]
 python_version = "3.10"
