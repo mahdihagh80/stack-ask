@@ -65,22 +65,6 @@ class AnswerViewSet(ModelViewSet):
         return Response(self.get_serializer(answer).data)
 
 
-        # from rest_framework.generics import get_object_or_404
-        # question = get_object_or_404(Question, pk=question_id)
-        # try:
-        #     question = Question.objects.get(pk=question_id)
-        # except Question.DoesNotExist:
-        #     from django.http import Http404
-        #     raise Http404("No question matches the given query.")
-        # print(question.owner_id == request.user.id)
-
-
-        # serializer = self.get_serializer(data=request.data, partial=True)
-
-
-
-        return Response("test", status=status.HTTP_200_OK)
-
 # class AnswerGenericView(
 #     CreateModelMixin,
 #     UpdateModelMixin,
