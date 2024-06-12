@@ -2,11 +2,8 @@ from rest_framework import serializers
 from qa.models import Question, Tag, Answer
 
 
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = ['name']
-
+class TagSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=50)
 
 class QuestionSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True)
@@ -46,7 +43,7 @@ class QuestionSerializer(serializers.ModelSerializer):
                 t, _ = Tag.objects.get_or_create(name=tag['name'])
                 tags_obj_list.append(t)
 
-            instance.tags.set(*tags_obj_list, clear=True)
+            instance.tags.set(tags_obj_list, clear=True)
         return super().update(instance, validated_data)
 
 
